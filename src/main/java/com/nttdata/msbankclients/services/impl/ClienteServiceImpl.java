@@ -3,6 +3,8 @@ package com.nttdata.msbankclients.services.impl;
 import com.nttdata.msbankclients.entity.Cliente;
 import com.nttdata.msbankclients.repository.IClienteRepository;
 import com.nttdata.msbankclients.services.IClienteService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,8 @@ public class ClienteServiceImpl implements IClienteService {
     @Autowired
     private IClienteRepository clienteRepository;
 
+    private static final Logger log = LoggerFactory.getLogger(ClienteServiceImpl.class);
+
 
     @Override
     public Cliente save(Cliente cliente) {
@@ -22,8 +26,15 @@ public class ClienteServiceImpl implements IClienteService {
     }
 
     @Override
-    public Cliente update(Cliente cliente) {
-        return clienteRepository.save(cliente);
+    public Cliente update(Integer id, Cliente cliente) {
+        log.info("findById "+ id);
+        Optional<Cliente> c = clienteRepository.findById(id);
+        if (c.isPresent()){
+            log.info("update "+ id);
+            return clienteRepository.save(cliente);
+        }
+        log.info("Cliente no existe "+ id);
+        return null;
     }
 
     @Override

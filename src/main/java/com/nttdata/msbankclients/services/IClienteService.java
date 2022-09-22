@@ -8,7 +8,7 @@ public interface IClienteService {
 
     Cliente save(Cliente cliente);
 
-    Cliente update(Cliente cliente);
+    Cliente update(Integer id, Cliente cliente);
 
     List<Cliente> getListAll();
 
