@@ -54,7 +54,7 @@ public class ClienteController {
     public ResponseEntity<Object> update(@PathVariable("id") Integer id, @RequestBody Cliente cliente){
         log.info("[INI] update Cliente " + id);
 
-        Cliente p = clienteService.update(cliente);
+        Cliente p = clienteService.update(id, cliente);
 
         log.info("[END] update Cliente " + id);
 
