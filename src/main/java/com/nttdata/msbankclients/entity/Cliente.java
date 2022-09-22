@@ -1,5 +1,6 @@
 package com.nttdata.msbankclients.entity;
 
+import com.nttdata.msbankclients.util.Persona;
 import lombok.*;
 
 import javax.persistence.*;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cliente extends Persona{
+public class Cliente extends Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

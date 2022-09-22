@@ -1,17 +1,17 @@
-package com.nttdata.msbankclients.entity;
+package com.nttdata.msbankclients.util;
 
 import com.nttdata.msbankclients.enums.GeneroEnum;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Setter
+@MappedSuperclass
 public class Persona {
 
-    @Id
     @Column(name = "identificacion", nullable = false, length = 30)
     private String identificacion;
 
