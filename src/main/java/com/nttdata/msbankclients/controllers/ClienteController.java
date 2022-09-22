@@ -50,7 +50,7 @@ public class ClienteController {
         return new ResponseEntity<Cliente>(p, HttpStatus.CREATED);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<Object> update(@PathVariable("id") Integer id, @RequestBody Cliente cliente){
         log.info("[INI] update Cliente " + id);
 
